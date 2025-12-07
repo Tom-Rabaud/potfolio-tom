@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projet — Exemple</title>
+  <link rel="stylesheet" href="projet-video.css">
+</head>
+<body>
+
+  <!-- HEADER (doit être direct enfant de body pour éviter problèmes de sticky) -->
+  <header class="exemple-header" role="banner" aria-label="En-tête du projet">
+    <!-- SECTION GAUCHE — vidéo cliquable (retour) -->
+    <div class="header-left">
+      <a href="index.html" class="logo-link" aria-label="Retour à l'accueil">
+        <video class="logo-video" autoplay muted loop playsinline>
+          <source src="logo.mp4" type="video/mp4">
+        </video>
+      </a>
+    </div>
+
+    <!-- SECTION DROITE — titre -->
+    <div class="header-right">
+      <h1 class="project-title">VIDEO</h1>
+    </div>
+  </header>
+
+  <main id="main-content" class="projet-layout">
+
+    <!-- COLONNE GAUCHE : TEXTE -->
+    <section class="projet-col-left">
+
+      <h1 class="projet-title">Smith.</h1>
+
+      <p class="projet-desc">
+        Pour ce projet l'objectif était de réaliser un générique de serie fictive. J'ai choisi de m'inspirer de la série "Dexter" dans la construction du générique. A travers le générique l'objectif est de crée une tension qui tourne autour du personnage principal, un personnage mysterieux et ambigu. J'ai utilisé des images en macro et des mouvements de caméra lents pour crée une atmosphère oppressante et intrigante. Le choix de la musique et du rythme des images contribue également a renforcer cette ambiance.<br><br>
+
+        J'ai été acompagné de deux autres éléves :<br>
+        - Batiste Delattaignant<br>
+        - Lucas Delroeux
+        </ul>
+      </div>
+
+    </section>
+
+
+    <!-- COLONNE DROITE : SLIDER DYNAMIQUE -->
+    <div class="right-column">
+      <div class="slider-dyn">
+
+        <button class="nav left" aria-label="Précédent">‹</button>
+        <button class="nav right" aria-label="Suivant">›</button>
+
+        <div class="slides">
+          <!-- ➤ AJOUTE / SUPPRIME des images librement -->
+          <div class="img">
+  <video autoplay loop muted playsinline>
+    <source src="images-smith/1.mp4" type="video/mp4">
+  </video>
+</div>
+          <div class="img"><img src="images-smith/1.jpg" alt=""></div>
+          <div class="img"><img src="images-smith/2.jpg" alt=""></div>
+          <div class="img"><img src="images-smith/3.jpg" alt=""></div>
+          <div class="img"><img src="images-smith/4.jpg" alt=""></div>
+          <div class="img"><img src="images-smith/5.jpg" alt=""></div>
+          <div class="img"><img src="images-smith/6.jpg" alt=""></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer-min" role="contentinfo">
+    <p class="footer-text">© 2025 — Tom Rabaud</p>
+    <a href="#main-content" class="back-to-top" aria-label="Remonter en haut"><span class="arrow"></span></a>
+  </footer>
+
+  <!-- SCRIPT : navigation des flèches -->
+  <script>
+    const slides = document.querySelector('.slider-dyn .slides');
+    document.querySelector('.slider-dyn .left')
+      .onclick = () => slides.scrollBy({left: -slides.clientWidth, behavior: "smooth"});
+    document.querySelector('.slider-dyn .right')
+      .onclick = () => slides.scrollBy({left: slides.clientWidth, behavior: "smooth"});
+  </script>
+
+</body>
+</html>
