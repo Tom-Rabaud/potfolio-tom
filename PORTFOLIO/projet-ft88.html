@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projet — Exemple</title>
+  <link rel="stylesheet" href="projet-vidéo.css">
+</head>
+<body>
+
+  <!-- HEADER (doit être direct enfant de body pour éviter problèmes de sticky) -->
+  <header class="exemple-header" role="banner" aria-label="En-tête du projet">
+    <!-- SECTION GAUCHE — vidéo cliquable (retour) -->
+    <div class="header-left">
+      <a href="index.html" class="logo-link" aria-label="Retour à l'accueil">
+        <video class="logo-video" autoplay muted loop playsinline>
+          <source src="logo.mp4" type="video/mp4">
+        </video>
+      </a>
+    </div>
+
+    <!-- SECTION DROITE — titre -->
+    <div class="header-right">
+      <h1 class="project-title">SPECIMEN TYPOGRAPHIQUE FT88</h1>
+    </div>
+  </header>
+
+  <main id="main-content" class="projet-layout">
+
+    <!-- COLONNE GAUCHE : TEXTE -->
+    <section class="projet-col-left">
+
+      <h1 class="projet-title">FT88 Ange Degheest.</h1>
+
+      <p class="projet-desc">
+        Projet de creation d'un specimen typographique pour la police FT88 crée par le typograph Ange Degheest.
+        L'objectif est de mettre en avant les différentes caractéristiques de la police a travers un specimen.<br><br>
+        Ce projet m'a permis d'experimenté avec la mise en page typographique ainsi que la hiérarchie de l'information. Mais aussi de d'apprendre after effects pour la création de la vidéo d'animation du specimen. 
+      </p>
+      <div class="projet-info">
+        <h2>Le speciment est trois éléments graphiques :</h2>
+        <ul>
+          - Le specimen typographique en lui meme au format 10,5 cm par 29,7 cm<br>
+          - Affiche horizontal 80 cm par 60 cm<br>
+          - Une vidée qui anime l'affiche<br>
+        </ul>
+      </div>
+
+    </section>
+
+
+    <!-- COLONNE DROITE : SLIDER DYNAMIQUE -->
+    <div class="right-column">
+      <div class="slider-dyn">
+
+        <button class="nav left" aria-label="Précédent">‹</button>
+        <button class="nav right" aria-label="Suivant">›</button>
+
+        <div class="slides">
+          <!-- ➤ AJOUTE / SUPPRIME des images librement -->
+          <div class="img">
+  <video autoplay loop muted playsinline>
+    <source src="images-ft88/1.mp4" type="video/mp4">
+  </video>
+</div>
+          <div class="img"><img src="images-ft88/2.jpg" alt=""></div>
+          <div class="img"><img src="images-ft88/3.jpg" alt=""></div>
+          <div class="img"><img src="images-ft88/4.jpg" alt=""></div>
+          <div class="img"><img src="images-ft88/5.jpg" alt=""></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer-min" role="contentinfo">
+    <p class="footer-text">© 2025 — Tom Rabaud</p>
+    <a href="#main-content" class="back-to-top" aria-label="Remonter en haut"><span class="arrow"></span></a>
+  </footer>
+
+  <!-- SCRIPT : navigation des flèches -->
+  <script>
+    const slides = document.querySelector('.slider-dyn .slides');
+    document.querySelector('.slider-dyn .left')
+      .onclick = () => slides.scrollBy({left: -slides.clientWidth, behavior: "smooth"});
+    document.querySelector('.slider-dyn .right')
+      .onclick = () => slides.scrollBy({left: slides.clientWidth, behavior: "smooth"});
+  </script>
+
+</body>
+</html>

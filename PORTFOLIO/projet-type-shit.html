@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projet — Exemple</title>
+  <link rel="stylesheet" href="projets.css">
+</head>
+<body>
+
+  <!-- HEADER (doit être direct enfant de body pour éviter problèmes de sticky) -->
+  <header class="exemple-header" role="banner" aria-label="En-tête du projet">
+    <!-- SECTION GAUCHE — vidéo cliquable (retour) -->
+    <div class="header-left">
+      <a href="index.html" class="logo-link" aria-label="Retour à l'accueil">
+        <video class="logo-video" autoplay muted loop playsinline>
+          <source src="logo.mp4" type="video/mp4">
+        </video>
+      </a>
+    </div>
+
+    <!-- SECTION DROITE — titre -->
+    <div class="header-right">
+      <h1 class="project-title">AFFICHES TYPOGRAPHIQUES</h1>
+    </div>
+  </header>
+
+  <main id="main-content" class="projet-layout">
+
+    <!-- COLONNE GAUCHE : TEXTE -->
+    <section class="projet-col-left">
+
+      <h1 class="projet-title">Type Shit.</h1>
+
+      <p class="projet-desc">
+        Projet de creation d'une serie de trois affiches typographiques.<br> sur des nouvelle expressions populaires.<br>Pour ce projet j'ai utilisé l'expression "Type Shit". a travers les origines de l'expressions venant du rap amériquain.<br> J'ai utilisé l'esthétique des rapeur qui ont popularisé cette expression.
+        <br><br>
+        <strong>Étymologie de Type Shit :</strong><br><br>
+        «TYPE SHIT» Est une expression américaine assez proche d’un tic de langage. 
+Elle peut être traduite littéralement par « ce genre de trucs » ou « ce genre de merde ».<br> L'expression trouve son origine dans une musique du même nom faite par les rappeurs :
+Future, Metro Boomin, Travis Scott et Playboi Carti. 
+      </p>
+
+      <div class="projet-info">
+        <h2>Trois affiches :</h2>
+        <ul>
+          1 : Mélange de photogaphie et de modelisation 3D.<br>
+          2 : Affiche caligraphique.<br>
+          3 : Photogaphie et Photoshop<br>
+        </ul>
+      </div>
+
+    </section>
+
+
+    <!-- COLONNE DROITE : SLIDER DYNAMIQUE -->
+    <div class="right-column">
+      <div class="slider-dyn">
+
+        <button class="nav left" aria-label="Précédent">‹</button>
+        <button class="nav right" aria-label="Suivant">›</button>
+
+        <div class="slides">
+          <!-- ➤ AJOUTE / SUPPRIME des images librement -->
+          <div class="img"><img src="images-type-shit copie/1.jpg" alt=""></div>
+          <div class="img"><img src="images-type-shit copie/2.jpg" alt=""></div>
+          <div class="img"><img src="images-type-shit copie/3.jpg" alt=""></div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer-min" role="contentinfo">
+    <p class="footer-text">© 2025 — Tom Rabaud</p>
+    <a href="#main-content" class="back-to-top" aria-label="Remonter en haut"><span class="arrow"></span></a>
+  </footer>
+
+  <!-- SCRIPT : navigation des flèches -->
+  <script>
+    const slides = document.querySelector('.slider-dyn .slides');
+    document.querySelector('.slider-dyn .left')
+      .onclick = () => slides.scrollBy({left: -slides.clientWidth, behavior: "smooth"});
+    document.querySelector('.slider-dyn .right')
+      .onclick = () => slides.scrollBy({left: slides.clientWidth, behavior: "smooth"});
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projet — Exemple</title>
+  <link rel="stylesheet" href="projets.css">
+</head>
+<body>
+
+  <!-- HEADER (doit être direct enfant de body pour éviter problèmes de sticky) -->
+  <header class="exemple-header" role="banner" aria-label="En-tête du projet">
+    <!-- SECTION GAUCHE — vidéo cliquable (retour) -->
+    <div class="header-left">
+      <a href="index.html" class="logo-link" aria-label="Retour à l'accueil">
+        <video class="logo-video" autoplay muted loop playsinline>
+          <source src="logo.mp4" type="video/mp4">
+        </video>
+      </a>
+    </div>
+
+    <!-- SECTION DROITE — titre -->
+    <div class="header-right">
+      <h1 class="project-title">HAJIME SORAYAMA</h1>
+    </div>
+  </header>
+
+  <main id="main-content" class="projet-layout">
+
+    <!-- COLONNE GAUCHE : TEXTE -->
+    <section class="projet-col-left">
+
+      <h1 class="projet-title">Coffret d'artiste.</h1>
+
+      <p class="projet-desc">
+        Projet de création d'un coffret d'artiste autour du travail d'Ajime Sorayama. 
+        Le coffret contient plusieurs affiches imprimées en grand format, 
+        mettant en avant le style unique de l'artiste japonais, connu pour ses illustrations 
+        futuristes et érotiques de robots et de figures féminines.
+        <br><br>
+        <strong>Le coffret comporte plusieurs objets graphiques :</strong><br><br>
+        - Une collection de 5 affiches 60×80.<br>
+        - Une édition sur la philosophie de l'artiste et son workflow.<br>
+        - Une grande édition avec une sélection d'illustrations et extraits d'interview.<br>
+        - Une playlist sous la forme d'un CD.<br>
+        - Des stickers inspirés du travail de Sorayama.<br>
+      </p>
+
+      <div class="projet-info">
+        <h2>Informations techniques :</h2>
+        <ul>
+          <li><strong>Logiciels :</strong> Photoshop, InDesign</li>
+          <li><strong>Format :</strong> 60 × 80 cm</li>
+          <li><strong>Année :</strong> 2025</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- COLONNE DROITE : SLIDER DYNAMIQUE -->
+    <div class="right-column">
+      <div class="slider-dyn">
+
+        <button class="nav left" aria-label="Précédent">‹</button>
+        <button class="nav right" aria-label="Suivant">›</button>
+
+        <div class="slides">
+          <!-- ➤ AJOUTE / SUPPRIME des images librement -->
+          <div class="img"><img src="images-sorayama/1.jpg" alt=""></div>
+          <div class="img"><img src="images-sorayama/2.jpg" alt=""></div>
+          <div class="img"><img src="images-sorayama/3.jpg" alt=""></div>
+          <div class="img"><img src="images-sorayama/4.jpg" alt=""></div>
+          <div class="img"><img src="images-sorayama/5.jpg" alt=""></div>
+          <div class="img"><img src="images-sorayama/6.jpg" alt=""></div>
+          <div class="img"><img src="images-sorayama/7.jpg" alt=""></div>
+          <div class="img"><img src="images-sorayama/8.jpg" alt=""></div>
+          <div class="img"><img src="images-sorayama/9.jpg" alt=""></div>
+          <div class="img"><img src="images-sorayama/10.jpg" alt=""></div>
+          <!-- autant d'images que tu veux -->
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer-min" role="contentinfo">
+    <p class="footer-text">© 2025 — Tom Rabaud</p>
+    <a href="#main-content" class="back-to-top" aria-label="Remonter en haut"><span class="arrow"></span></a>
+  </footer>
+
+  <!-- SCRIPT : navigation des flèches -->
+  <script>
+    const slides = document.querySelector('.slider-dyn .slides');
+    document.querySelector('.slider-dyn .left')
+      .onclick = () => slides.scrollBy({left: -slides.clientWidth, behavior: "smooth"});
+    document.querySelector('.slider-dyn .right')
+      .onclick = () => slides.scrollBy({left: slides.clientWidth, behavior: "smooth"});
+  </script>
+
+</body>
+</html>

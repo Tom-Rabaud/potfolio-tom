@@ -1,0 +1,308 @@
+/* ========== RESET / GLOBAL ========== */
+* { box-sizing: border-box; }
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #f3f4ff;
+    overflow-x: hidden;
+}
+
+html { scroll-behavior: smooth; }
+
+/* Layout pour que le footer reste toujours collé en bas */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;   /* hauteur minimum = hauteur écran */
+}
+
+main {
+    flex: 1;  /* prend tout l’espace disponible */
+}
+
+
+/* ========== HEADER STICKY ========== */
+.exemple-header {
+    position: sticky;
+    top: 0;
+    z-index: 99999;
+
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    align-items: center;
+
+    height: 120px;
+    padding: 0 24px;
+    gap: 16px;
+
+    background: #f3f4ff;
+    box-shadow: 0 5px 18px rgb(0, 0, 0);
+}
+
+/* Left (video) */
+.header-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 6px;
+}
+
+.logo-link {
+    display: inline-block;
+    width: 110px;
+    height: 90px;
+}
+
+.logo-video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.logo-link:hover .logo-video {
+    transform: scale(1.1);
+}
+
+/* Right section */
+.header-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.project-title {
+    margin: 0;
+    color: #000000;
+    font-size: 86px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* 📌 TABLETTES — écran < 992px */
+@media (max-width: 992px) {
+    .exemple-header {
+        grid-template-columns: 1fr 3fr; /* Réduit la largeur du titre */
+        height: 100px;
+        padding: 0 16px;
+    }
+
+    .project-title {
+        font-size: 56px; /* Titre plus petit mais toujours large */
+    }
+
+    .logo-link {
+        width: 90px;
+        height: 70px;
+    }
+}
+
+
+/* 📌 MOBILES — écran < 768px */
+@media (max-width: 768px) {
+    .exemple-header {
+        grid-template-columns: 1fr;     /* Empile tout */
+        height: auto;
+        padding: 12px 16px;
+        text-align: center;
+        gap: 8px;
+    }
+
+    .header-left, .header-right {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .logo-link {
+        width: 80px;
+        height: 65px;
+    }
+
+    .project-title {
+        font-size: 40px;
+        line-height: 1.1;
+    }
+}
+
+
+/* 📌 PETITS MOBILES — écran < 480px */
+@media (max-width: 480px) {
+    .project-title {
+        font-size: 30px;
+    }
+
+    .logo-link {
+        width: 65px;
+        height: 55px;
+    }
+
+    .exemple-header {
+        padding: 10px 12px;
+    }
+}
+
+
+/* ========== MAIN LAYOUT (1/3 - 2/3) ========== */
+.projet-layout {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;  
+    gap: 60px;
+    padding: 30px;
+    font-size: 22px;
+}
+
+/* TEXTE */
+.projet-intro { text-align: center; margin-bottom: 40px; }
+.projet-title { font-size: 3rem; margin: 0 0 12px; color: #1e0101; }
+.projet-desc { max-width: 900px; margin: 0 auto 32px; color: #1e0101; opacity: .85; }
+
+/* ========== SLIDER DYNAMIQUE — SCROLL-SNAP ========== */
+
+/* ========== SLIDER DYNAMIQUE — SCROLL-SNAP ========== */
+
+.slider-dyn {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #f3f4ff;
+}
+
+/* Ligne de slides défilants */
+.slider-dyn .slides {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.slider-dyn .slides::-webkit-scrollbar {
+  display: none;
+}
+
+/* Chaque slide */
+.slider-dyn .img {
+  flex: 0 0 100%;
+  min-height: 420px;
+  scroll-snap-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* IMPORTANT: empêche vidéo de dépasser */
+  position: relative;
+  overflow: hidden;
+}
+
+/* === IMAGES === */
+.slider-dyn .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+/* === VIDEOS === */
+.slider-dyn .img video {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+
+  /* garder le vrai format, sans crop */
+  object-fit: contain;
+
+  /* centrer parfaitement dans le slide */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background: #000; /* fond propre derrière vidéo */
+  border-radius: 10px;
+}
+
+/* FLECHES */
+.slider-dyn .nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  background: rgba(0,0,0,0.48);
+  color: #fff;
+  font-size: 34px;
+  line-height: 1;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+.slider-dyn .left { left: 12px; }
+.slider-dyn .right { right: 12px; }
+
+.slider-dyn .nav:active {
+  transform: translateY(-50%) scale(.96);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .slider-dyn .img {
+    min-height: 300px;
+  }
+}
+
+
+/* ========== INFO TECHNIQUES ========== */
+.projet-info {
+    margin-top: 0px;
+    padding: 26px;
+    background: #000000e5;
+    border-radius: 10px;
+    color: #f3f4ff;
+}
+.projet-info h3 { margin: 0 0 12px; }
+.projet-info ul { list-style: none; padding: 0; margin: 0; }
+.projet-info li { margin-bottom: 8px; }
+
+/* FOOTER */
+.footer-min {
+    width: 100%;
+    height: 56px;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.footer-text { color: #f3f4ff; margin: 0; }
+.back-to-top { position: absolute; right: 20px; bottom: 20px; color: #fff; text-decoration: none; }
+
+/* ===== RESPONSIVE — mobile ===== */
+@media (max-width: 900px) {
+
+  /* Passe le layout en une seule colonne */
+  .projet-layout {
+    grid-template-columns: 1fr;      /* 1 colonne */
+    gap: 30px;                       /* espace propre */
+  }
+
+  /* Le texte passe en premier */
+  .projet-col-left {
+    order: 1;
+  }
+
+  /* Le slider passe juste après */
+  .right-column {
+    order: 2;
+  }
+}

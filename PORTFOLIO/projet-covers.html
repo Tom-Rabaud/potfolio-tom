@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projet — Exemple</title>
+  <link rel="stylesheet" href="projets.css">
+</head>
+<body>
+
+  <!-- HEADER (doit être direct enfant de body pour éviter problèmes de sticky) -->
+  <header class="exemple-header" role="banner" aria-label="En-tête du projet">
+    <!-- SECTION GAUCHE — vidéo cliquable (retour) -->
+    <div class="header-left">
+      <a href="index.html" class="logo-link" aria-label="Retour à l'accueil">
+        <video class="logo-video" autoplay muted loop playsinline>
+          <source src="logo.mp4" type="video/mp4">
+        </video>
+      </a>
+    </div>
+
+    <!-- SECTION DROITE — titre -->
+    <div class="header-right">
+      <h1 class="project-title">COVERS</h1>
+    </div>
+  </header>
+
+  <main id="main-content" class="projet-layout">
+
+    <!-- COLONNE GAUCHE : TEXTE -->
+    <section class="projet-col-left">
+
+      <h1 class="projet-title">Couvertures d'albums.</h1>
+
+      <p class="projet-desc">
+        Projet de creation d'une serie de trois couvertures d'albums musicaux fictive, recto et verso. Mais basée sur des artistes déja existent.<br> l'objectif est de se réaproprioé des esthétique déja existante et d'expérimenté avec.
+        <br><br>
+        <strong>Les artistes choisie :</strong><br><br>
+        <strong>DEATH GRIPS</strong><br>
+Death Grips est un groupe de hip-hop américain, originaire de Sacramento en Californie. La musique du groupe est considérée comme un mélange de punk rock, de hip-hop et musique bruitiste.<br>
+<br>
+<strong>SONIC DRAGOLGO</strong><br>
+Kozaburo Narita, également connu sous son nom de scène Sonic Dragolgo, est né à Tokyo en 1968, il est un artiste Japonais de musique électronique hardcore du genre Nerdcore.<br>
+<br>
+<strong>NUJABES</strong><br>
+Jun Seba, dit Nujabes, né le 7 février 1974 à Adachi à Tokyo et mort le 26 février 2010 à Shibuya dans la même ville, est un producteur de hip-hop, de trip hop et un DJ japonais.<br>
+<br>
+<strong>TITLE FIGHT</strong><br>
+Title Fight est un groupe américain de rock alternatif, originaire de Kingston, en Pennsylvanie, actif entre 2003 et 2018.<br>
+<br>
+<strong>TOOL</strong><br>
+Tool est un groupe de metal progressif américain, originaire de Los Angeles, en Californie. Formé en 1990 par le chanteur Maynard James Keenan, le guitariste Adam Jones, le batteur Danny Carey et le bassiste Paul D’Amour.<br>
+      </p>
+
+      <div class="projet-info">
+        <h2>Trois affiches :</h2>
+        <ul>
+          1 : Mélange de photogaphie et de modelisation 3D.<br>
+          2 : Affiche caligraphique.<br>
+          3 : Photogaphie et Photoshop<br>
+        </ul>
+      </div>
+
+    </section>
+
+
+    <!-- COLONNE DROITE : SLIDER DYNAMIQUE -->
+    <div class="right-column">
+      <div class="slider-dyn">
+
+        <button class="nav left" aria-label="Précédent">‹</button>
+        <button class="nav right" aria-label="Suivant">›</button>
+
+        <div class="slides">
+          <!-- ➤ AJOUTE / SUPPRIME des images librement -->
+          <div class="img"><img src="images-covers/1.jpg" alt=""></div>
+          <div class="img"><img src="images-covers/2.jpg" alt=""></div>
+          <div class="img"><img src="images-covers/3.jpg" alt=""></div>
+          <div class="img"><img src="images-covers/4.jpg" alt=""></div>
+          <div class="img"><img src="images-covers/5.jpg" alt=""></div>
+          <div class="img"><img src="images-covers/6.jpg" alt=""></div>
+          <div class="img"><img src="images-covers/7.jpg" alt=""></div>
+          <div class="img"><img src="images-covers/8.jpg" alt=""></div>
+          <div class="img"><img src="images-covers/9.jpg" alt=""></div>
+          <div class="img"><img src="images-covers/10.jpg" alt=""></div>
+          <div class="img"><img src="images-covers/11.jpg" alt=""></div>
+          <div class="img"><img src="images-covers/12.jpg" alt=""></div>
+          <div class="img"><img src="images-covers/13.jpg" alt=""></div>
+          <div class="img"><img src="images-covers/14.jpg" alt=""></div>
+          <div class="img"><img src="images-covers/15.jpg" alt=""></div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer-min" role="contentinfo">
+    <p class="footer-text">© 2025 — Tom Rabaud</p>
+    <a href="#main-content" class="back-to-top" aria-label="Remonter en haut"><span class="arrow"></span></a>
+  </footer>
+
+  <!-- SCRIPT : navigation des flèches -->
+  <script>
+    const slides = document.querySelector('.slider-dyn .slides');
+    document.querySelector('.slider-dyn .left')
+      .onclick = () => slides.scrollBy({left: -slides.clientWidth, behavior: "smooth"});
+    document.querySelector('.slider-dyn .right')
+      .onclick = () => slides.scrollBy({left: slides.clientWidth, behavior: "smooth"});
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projet — Exemple</title>
+  <link rel="stylesheet" href="projets.css">
+</head>
+<body>
+
+  <!-- HEADER (doit être direct enfant de body pour éviter problèmes de sticky) -->
+  <header class="exemple-header" role="banner" aria-label="En-tête du projet">
+    <!-- SECTION GAUCHE — vidéo cliquable (retour) -->
+    <div class="header-left">
+      <a href="index.html" class="logo-link" aria-label="Retour à l'accueil">
+        <video class="logo-video" autoplay muted loop playsinline>
+          <source src="logo.mp4" type="video/mp4">
+        </video>
+      </a>
+    </div>
+
+    <!-- SECTION DROITE — titre -->
+    <div class="header-right">
+      <h1 class="project-title">OPENATELIE</h1>
+    </div>
+  </header>
+
+  <main id="main-content" class="projet-layout">
+
+    <!-- COLONNE GAUCHE : TEXTE -->
+    <section class="projet-col-left">
+
+      <h1 class="projet-title">Experimentations graphique.</h1>
+
+      <p class="projet-desc">
+        L'objectif de se projet était de regrouper un collection d'objet qui partagent un point commun. j'ai choisi de faire une collection d'objet des quel il est possible de dire qu'ils sont ouvret ou fermé. Ensuit l'objetif etait d'experimenter avec les objets afin d'obtenir un banc d'élément graphique a l'image de la collection d'objet.<br>
+        <br>
+        J'ai ensuit utiliser cette collection graphique pour produire deux affiches un et une edition qui travers l'emsemble des experimentations realisé. dans un univers graphique abstrait et énignmatique.
+      </p>
+
+      <div class="projet-info">
+        <h2>Pratiques utiliser :</h2>
+        <ul>
+          - scans et photographies d'objets<br>
+          - peinture et dessin manuel<br>
+          - retouches et manipulations numériques<br>
+          - mise en page<br>
+          - création d'affiche<br>
+          - création d'édition<br>
+        </ul>
+      </div>
+
+    </section>
+
+
+    <!-- COLONNE DROITE : SLIDER DYNAMIQUE -->
+    <div class="right-column">
+      <div class="slider-dyn">
+
+        <button class="nav left" aria-label="Précédent">‹</button>
+        <button class="nav right" aria-label="Suivant">›</button>
+
+        <div class="slides">
+          <!-- ➤ AJOUTE / SUPPRIME des images librement -->
+          <div class="img"><img src="images-openatelie/1.jpg" alt=""></div>
+          <div class="img"><img src="images-openatelie/2.jpg" alt=""></div>
+          <div class="img"><img src="images-openatelie/3.jpg" alt=""></div>
+          <div class="img"><img src="images-openatelie/4.jpg" alt=""></div>
+          <div class="img"><img src="images-openatelie/5.jpg" alt=""></div>
+          <div class="img"><img src="images-openatelie/6.jpg" alt=""></div>
+          <div class="img"><img src="images-openatelie/7.jpg" alt=""></div>
+          <div class="img"><img src="images-openatelie/8.jpg" alt=""></div>
+          <div class="img"><img src="images-openatelie/9.jpg" alt=""></div>
+          <div class="img"><img src="images-openatelie/10.jpg" alt=""></div>
+          <div class="img"><img src="images-openatelie/11.jpg" alt=""></div>
+          <div class="img"><img src="images-openatelie/12.jpg" alt=""></div>
+          <div class="img"><img src="images-openatelie/13.jpg" alt=""></div>
+          <div class="img"><img src="images-openatelie/14.jpg" alt=""></div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer-min" role="contentinfo">
+    <p class="footer-text">© 2025 — Tom Rabaud</p>
+    <a href="#main-content" class="back-to-top" aria-label="Remonter en haut"><span class="arrow"></span></a>
+  </footer>
+
+  <!-- SCRIPT : navigation des flèches -->
+  <script>
+    const slides = document.querySelector('.slider-dyn .slides');
+    document.querySelector('.slider-dyn .left')
+      .onclick = () => slides.scrollBy({left: -slides.clientWidth, behavior: "smooth"});
+    document.querySelector('.slider-dyn .right')
+      .onclick = () => slides.scrollBy({left: slides.clientWidth, behavior: "smooth"});
+  </script>
+
+</body>
+</html>

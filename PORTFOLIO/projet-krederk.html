@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projet — Exemple</title>
+  <link rel="stylesheet" href="projets.css">
+</head>
+<body>
+
+  <!-- HEADER (doit être direct enfant de body pour éviter problèmes de sticky) -->
+  <header class="exemple-header" role="banner" aria-label="En-tête du projet">
+    <!-- SECTION GAUCHE — vidéo cliquable (retour) -->
+    <div class="header-left">
+      <a href="index.html" class="logo-link" aria-label="Retour à l'accueil">
+        <video class="logo-video" autoplay muted loop playsinline>
+          <source src="logo.mp4" type="video/mp4">
+        </video>
+      </a>
+    </div>
+
+    <!-- SECTION DROITE — titre -->
+    <div class="header-right">
+      <h1 class="project-title">CREATION TYPOGRAPHIQUE</h1>
+    </div>
+  </header>
+
+  <main id="main-content" class="projet-layout">
+
+    <!-- COLONNE GAUCHE : TEXTE -->
+    <section class="projet-col-left">
+
+      <h1 class="projet-title">KREDERK.</h1>
+
+      <p class="projet-desc">
+        Pour ce projet l'objetif etait de travaile la mise en page, avec de ressources que j'ai moi meme cherché et repertorié. Le thème de cette recherche etait le corp humain, son anatomie, son fonctionnement, son histoire et sa représentation artistique a travers le temps. J'ai reussi a rassembler une collection d'image variée et interessante, qui m'a permis de realiser une serie de mise en page abstraite et graphique, qui explore differente facette du corp humain.
+        et notament la relation entre l'Homme et son porpre corps.
+      </p>
+
+      <div class="projet-info">
+        <h2>Liste de ressources utilisées :</h2>
+        <ul>
+          
+1. Hans Christian Adam ( Ed. ), Eadweard Muybridge The Human and Animal Locomotion Photographs,
+Cologne, Teschen, 2010<br><br>
+2. Philippe Comar, Une leçon d’anatomie Figures du corps à l’école des beaux-arts, Paris, Beaux-art de Paris
+les editions, 2010<br><br>
+3. Jérôme Pierrat Eric Guillon, Le tatouage à Birbi Les vrais, les durs, les tatoués, Clichy, Editions Larivière,
+2005<br><br>
+4. Alain Corbin, jean-jacques courtine, georges vigarello, histoire du corps, Paris, Edition du Seuil, 2011<br><br>
+5. Marco Livingstone, Duane Michals Photographie de l’invisible, Paris, Edition de la Martinière, 1998<br><br>
+6. David Malin Katherine Roucoux, De l’atome à l’infini au-dela du visible, Vienne, Phaidon, 2002<br><br>
+7. G. Civardi, Notes sur l’Anatomie et Etudes du Mouvement, Italie, De Vecchi, 2000<br><br>
+8. Guy Pehourcq, Anatomie Artistique Vivante, Paris, Dessain et Tolra, 1986<br><br>
+9. G. Civardi, Morphologie externe du corps humain, Italie, De Vecchi, 2000<br><br>
+10. Mathias Duval, L’Anatomie Artistique, 1891<br>
+
+
+
+
+
+
+
+
+
+
+        </ul>
+      </div>
+
+    </section>
+
+
+    <!-- COLONNE DROITE : SLIDER DYNAMIQUE -->
+    <div class="right-column">
+      <div class="slider-dyn">
+
+        <button class="nav left" aria-label="Précédent">‹</button>
+        <button class="nav right" aria-label="Suivant">›</button>
+
+        <div class="slides">
+          <!-- ➤ AJOUTE / SUPPRIME des images librement -->
+          <div class="img"><img src="images-krederk/1.jpg" alt=""></div>
+          <div class="img"><img src="images-krederk/2.jpg" alt=""></div>
+          <div class="img"><img src="images-krederk/3.jpg" alt=""></div>
+          <div class="img"><img src="images-krederk/4.jpg" alt=""></div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer-min" role="contentinfo">
+    <p class="footer-text">© 2025 — Tom Rabaud</p>
+    <a href="#main-content" class="back-to-top" aria-label="Remonter en haut"><span class="arrow"></span></a>
+  </footer>
+
+  <!-- SCRIPT : navigation des flèches -->
+  <script>
+    const slides = document.querySelector('.slider-dyn .slides');
+    document.querySelector('.slider-dyn .left')
+      .onclick = () => slides.scrollBy({left: -slides.clientWidth, behavior: "smooth"});
+    document.querySelector('.slider-dyn .right')
+      .onclick = () => slides.scrollBy({left: slides.clientWidth, behavior: "smooth"});
+  </script>
+
+</body>
+</html>
