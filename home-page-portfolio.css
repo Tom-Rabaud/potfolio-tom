@@ -6,7 +6,19 @@ body, html {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f3f4ff;
+    background: #f3f4ff;
+}
+
+/* ----- VIDEO BACKGROUND ----- */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    display: none !important;
 }
 
 html {
@@ -22,6 +34,7 @@ html {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     width: 100%;
+    background: #f3f4ff;
 }
 
 .header-section {
@@ -29,7 +42,6 @@ html {
     justify-content: center;
     align-items: center;
     position: relative;
-    background: #f3f4ff;
 }
 
 /* Vidéo */
@@ -123,7 +135,9 @@ html {
     grid-template-columns: repeat(4, 1fr);
     gap: 50px;
     padding: 50px;
-    background: linear-gradient(180deg, #f3f4ff 0%, #f3f4ff 5%, #000000 100%);
+    background: linear-gradient(180deg, #f3f4ff 10%, #000000 100%);
+    position: relative;
+    z-index: 1;
 }
 
 /* ------------ CELLULES ------------- */
@@ -247,6 +261,7 @@ html {
 .about-text-zone h2 {
     font-size: 2.2rem;
     margin-bottom: 15px;
+    color: #f3f4ff;
 }
 
 .about-text-zone p {
@@ -278,9 +293,8 @@ html {
     scroll-margin-top: 120px; 
 }
 
-/* ===================================================================== */
-/* ==========================   RESPONSIVE   ============================ */
-/* ===================================================================== */
+
+/* ==========================   RESPONSIVE   
 
 /* ---------------- TABLETTES ---------------- */
 @media (max-width: 900px) {
@@ -491,7 +505,7 @@ footer .footer-arrow,
     justify-content: center;    /* Centre chaque item dans sa colonne */
     align-items: center;
     position: relative;
-    background: #f3f4ff;
+    background: transparent;
 }
 
 /* SECTION 2 — Nom */
@@ -701,4 +715,15 @@ footer .footer-arrow,
     .grid-item img:hover {
         transform: none !important;
     }
+}
+
+
+/* =============================== */
+/*   PROJETS LARGE (2 COLONNES)    */
+/* =============================== */
+
+.grid-large {
+    grid-column: span 2;
+    aspect-ratio: 120 / 74.5;
+
 }

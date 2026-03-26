@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projet — Exemple</title>
+  <link rel="stylesheet" href="projet-video.css">
+</head>
+<body>
+
+  <!-- HEADER (doit être direct enfant de body pour éviter problèmes de sticky) -->
+  <header class="exemple-header" role="banner" aria-label="En-tête du projet">
+    <!-- SECTION GAUCHE — vidéo cliquable (retour) -->
+    <div class="header-left">
+      <a href="index.html" class="logo-link" aria-label="Retour à l'accueil">
+        <video class="logo-video" autoplay muted loop playsinline>
+          <source src="logo.mp4" type="video/mp4">
+        </video>
+      </a>
+    </div>
+
+    <!-- SECTION DROITE — titre -->
+    <div class="header-right">
+      <h1 class="project-title">IDENTITÉ DE MARQUE</h1>
+    </div>
+  </header>
+
+  <main id="main-content" class="projet-layout">
+
+    <!-- COLONNE GAUCHE : TEXTE -->
+    <section class="projet-col-left">
+
+      <h1 class="projet-title">VOLT</h1>
+
+      <p class="projet-desc">
+        <b>Projet d'identité de marque pour une marque de boisson énergisante.</b><br>
+        Le projet comprend la création d'un logo, d'une palette de couleurs, de typographies et d'éléments graphiques pour renforcer l'identité visuelle de la marque.<br>
+        Centré autour d'une esthétique qui reprend les codes de la signalétique des panneaux de danger électriques.<br>
+        <br>
+        Ce projet est offre une pluralité de supports de communication, tels que des affiches, des emballages et des éléments de branding, des vidéos pour présenter la marque de manière dynamique et engageante.<br><br>
+        Tout cela permet d'expérimenter avec beaucoup de techniques en médias différents, de la 3D, à l'animation, en passant par le print et le motion design.<br>
+      </p>
+        </ul>
+      </div>
+
+    </section>
+
+
+    <!-- COLONNE DROITE : SLIDER DYNAMIQUE -->
+    <div class="right-column">
+      <div class="slider-dyn">
+
+        <button class="nav left" aria-label="Précédent">‹</button>
+        <button class="nav right" aria-label="Suivant">›</button>
+
+        <div class="slides">
+          <!-- ➤ AJOUTE / SUPPRIME des images librement -->
+          <div class="img">
+  <video autoplay loop muted playsinline>
+    <source src="images-volt/1.mp4">
+  </video>
+</div>
+          <div class="img">
+            <video autoplay loop muted playsinline>
+              <source src="images-volt/2.mp4">
+            </video>
+          </div>
+          <div class="img"><img src="images-volt/2.jpg" alt=""></div>
+          <div class="img"><img src="images-volt/3.jpg" alt=""></div>
+          <div class="img"><img src="images-volt/4.jpg" alt=""></div>
+          <div class="img"><img src="images-volt/5.jpg" alt=""></div>
+          <div class="img"><img src="images-volt/6.jpg" alt=""></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer-min" role="contentinfo">
+    <p class="footer-text">© 2025 — Tom Rabaud</p>
+    <a href="#main-content" class="back-to-top" aria-label="Remonter en haut"><span class="arrow"></span></a>
+  </footer>
+
+  <!-- SCRIPT : navigation des flèches -->
+  <script>
+    const slides = document.querySelector('.slider-dyn .slides');
+    document.querySelector('.slider-dyn .left')
+      .onclick = () => slides.scrollBy({left: -slides.clientWidth, behavior: "smooth"});
+    document.querySelector('.slider-dyn .right')
+      .onclick = () => slides.scrollBy({left: slides.clientWidth, behavior: "smooth"});
+  </script>
+
+</body>
+</html>
