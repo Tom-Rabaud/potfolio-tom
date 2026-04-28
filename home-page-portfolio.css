@@ -9,17 +9,6 @@ body, html {
     background: #f3f4ff;
 }
 
-/* ----- VIDEO BACKGROUND ----- */
-.video-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    display: none !important;
-}
 
 html {
     scroll-behavior: smooth;
@@ -28,14 +17,6 @@ html {
 /* ------------------------------------- */
 /*            HEADER (GRID)              */
 /* ------------------------------------- */
-
-.main-header {
-    margin-top: 3rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: 100%;
-    background: #f3f4ff;
-}
 
 .header-section {
     display: flex;
@@ -153,12 +134,44 @@ html {
     box-shadow: #00000033 0px 12px 20px;
 }
 
+/* Permet à un projet d'occuper toute la largeur de la grid (4 colonnes, 1 ligne) */
+.grid-full-row {
+    grid-column: 1 / span 4;
+    grid-row: auto / span 1;
+    aspect-ratio: unset !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    display: flex;
+    align-items: flex-start;
+}
+
 .grid-item img {
     height: 30rem;
     width: auto;
     aspect-ratio: 3/4;
     object-fit: cover;
     transition: transform 0.2s ease;
+}
+
+/* Ajustement spécifique pour l'image essentiels.jpg en full row */
+/* Correction : l'image essentiels.jpg prend sa hauteur naturelle et la cellule s'adapte */
+.grid-full-row .portfolio-card {
+    height: auto !important;
+    min-height: 0 !important;
+    display: flex;
+    align-items: flex-start;
+}
+
+.grid-full-row .portfolio-card img[src*="essentiels.jpg"] {
+    height: auto !important;
+    width: 100% !important;
+    max-width: 100%;
+    max-height: none;
+    aspect-ratio: auto !important;
+    object-fit: contain !important;
+    display: block;
+    margin: 0 auto;
 }
 
 .grid-item img:hover {
